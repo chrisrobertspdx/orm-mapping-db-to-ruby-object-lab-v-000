@@ -64,8 +64,13 @@ class Student
     DB[:conn].execute(sql).first
   end
 
-  def self.count_all_students_below_grade_9
+  def self.count_all_students_below_grade_12
     sql = "SELECT COUNT(ID) FROM students where grade < 12"
+    DB[:conn].execute(sql).first
+  end
+
+  def self.count_all_students_in_grade_10
+    sql = "SELECT COUNT(ID) FROM students where grade = 10"
     DB[:conn].execute(sql).first
   end
 
