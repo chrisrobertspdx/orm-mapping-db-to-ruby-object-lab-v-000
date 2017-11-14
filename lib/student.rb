@@ -15,10 +15,8 @@ class Student
     sql = <<-SQL
       SELECT * FROM  students where name = ?
     SQL
-    
-    DB[:conn].execute(sql,name).map {|r|
-      self.new_from_db(r)
-    }.first
+
+
 
   end
 
