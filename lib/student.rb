@@ -69,9 +69,11 @@ class Student
     DB[:conn].execute(sql).first
   end
 
-  def self.count_all_students_in_grade_10
-    sql = "SELECT COUNT(ID) FROM students where grade = 10"
-    DB[:conn].execute(sql).first
+  def self.first_X_students_in_grade_10(x)
+    sql = "SELECT * FROM students where grade = 10 LIMIT ?"
+    DB[:conn].execute(sql).map {|r|
+      self.new_from_db(r)
+    }
   end
 
 end
