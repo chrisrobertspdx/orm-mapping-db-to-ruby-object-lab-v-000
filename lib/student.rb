@@ -18,6 +18,7 @@ class Student
     DB[:conn].execute(sql,name).map {|r|
       self.new_from_db(r)
     }.first
+    binding.pry
   end
 
   def self.all
