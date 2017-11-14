@@ -30,7 +30,7 @@ class Student
     SQL
     DB[:conn].execute(sql).map {|r|
       self.new_from_db(r)
-    }
+    }.first
   end
 
   def save
