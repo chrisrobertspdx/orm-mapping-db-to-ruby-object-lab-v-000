@@ -63,5 +63,5 @@ class Student
     sql = "SELECT COUNT(ID) FROM students where grade = 9"
     DB[:conn].execute(sql).first
   end
-  
+
 end
