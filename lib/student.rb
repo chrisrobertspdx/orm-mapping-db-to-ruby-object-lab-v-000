@@ -13,10 +13,12 @@ class Student
 
   def self.find_by_name(name)
     sql = <<-SQL
-      SELECT * FROM  students where name = ?
+      SELECT * FROM students where name = ?
     SQL
 
-
+    DB[:conn].execute(sql,name).map {|r|
+      self.new_from_db(r)
+    }.first
 
   end
 
