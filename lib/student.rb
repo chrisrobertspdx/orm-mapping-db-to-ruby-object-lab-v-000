@@ -15,7 +15,7 @@ class Student
     sql = <<-SQL
       SELECT * FROM  students where name = ?
     SQL
-    binding.pry
+    
     DB[:conn].execute(sql,name).map {|r|
       self.new_from_db(r)
     }.first
